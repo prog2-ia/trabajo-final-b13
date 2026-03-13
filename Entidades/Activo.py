@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 class Activo(ABC):
-    def __init__(self, nombre: str, ticker: str, precio_actual: float):
+    def __init__(self, nombre, ticker, precio_actual):
 
         self._nombre = nombre
         self._ticker = ticker

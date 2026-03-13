@@ -1,5 +1,5 @@
 class Bono(Activo):
-    def __init__(self, nombre: str, ticker: str, precio_actual: float, tasa_interes: float, vencimiento: str):
+    def __init__(self, nombre, ticker, precio_actual, tasa_inter, vencimiento):
         super().__init__(nombre, ticker, precio_actual)
         self._tasa_interes = tasa_interes
         self._vencimiento = vencimiento
