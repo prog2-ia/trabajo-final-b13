@@ -1,10 +1,10 @@
 class Bono(Activo):
-    def __init__(self, nombre, ticker, precio_actual, tasa_inter, vencimiento):
+    def __init__(self, nombre, ticker, precio_actual, tasa_interes, vencimiento):
         super().__init__(nombre, ticker, precio_actual)
         self._tasa_interes = tasa_interes
         self._vencimiento = vencimiento
 
-    def calcular_riesgo(self) -> str:
+    def calcular_riesgo(self):
         # Los bonos suelen considerarse de riesgo bajo
         return "Bajo"
 
