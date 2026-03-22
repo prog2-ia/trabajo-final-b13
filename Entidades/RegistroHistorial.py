@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class RegistroHistorial:
     def __init__(self, tipo_evento, descripcion):
         self.tipo_evento = tipo_evento  # Ej: "COMPRA", "VENTA", "CAMBIO_PRECIO"

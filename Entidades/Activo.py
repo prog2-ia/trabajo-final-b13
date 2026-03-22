@@ -9,7 +9,6 @@ class Activo(ABC):
 
     @abstractmethod
     def actualizar_precio(self, nuevo_precio: float):
-        """Este método es obligatorio para los hijos (Herencia) [cite: 491]"""
         pass
 
     def __str__(self):
