@@ -1,4 +1,4 @@
-from datetime import datetime
+
 # Importamos todas tus entidades
 # Cambia tus imports en main.py por estos:
 from Entidades.Activo import Activo
@@ -10,7 +10,7 @@ from Entidades.Estrategia import Estrategia
 from Entidades.Etiqueta import Etiqueta
 from Entidades.Transaccion import Transaccion
 from Entidades.RegistroHistorial import RegistroHistorial
-
+from datetime import datetime
 def demo_total():
     print("=== SISTEMA DE INVERSIONES ===")
 

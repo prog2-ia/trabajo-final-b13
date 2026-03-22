@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Transaccion:
     def __init__(self, tipo, ticker, cantidad, precio_ejecucion):
         self._fecha = datetime.now()
