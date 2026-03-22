@@ -1,7 +1,3 @@
-
-# Importamos todas tus entidades
-# Cambia tus imports en main.py por estos:
-from Entidades.Activo import Activo
 from Entidades.Bono import Bono
 from Entidades.Alerta import Alerta
 from Entidades.Inversor import Inversor
@@ -10,42 +6,36 @@ from Entidades.Estrategia import Estrategia
 from Entidades.Etiqueta import Etiqueta
 from Entidades.Transaccion import Transaccion
 from Entidades.RegistroHistorial import RegistroHistorial
-from datetime import datetime
-def demo_total():
-    print("=== SISTEMA DE INVERSIONES ===")
 
-    # 1. Configuración básica (Etiqueta y Divisa)
-    etiqueta_bono = Etiqueta("Renta Fija", "Categoría")
-    eur = Divisa("Euro", "EUR", "€")
-    print(f"Configurando entorno en {eur} con etiquetas de {etiqueta_bono.nombre}")
+def demo_simplificada():
+    #  Definimos la moneda y una etiqueta para clasificar activos
+    moneda = Divisa("Euro", "EUR", "€")
+    tag = Etiqueta("Renta Fija", "Riesgo Bajo")
+    print(f">> Sistema iniciado. Divisa: {moneda} | Tag: {tag.nombre}")
 
-    # 2. Definir el Activo (Bono)
-    # IMPORTANTE: Para que funcione, Bono debe tener implementado 'actualizar_precio'
-    mi_bono = Bono("Bono Estado 10Y", "B10Y", 98.20, 3.25, "2034-01-01")
-    print(f"Activo creado: {mi_bono}")
+    # Creamos un Bono (pertenece a los activos)
+    b1 = Bono("Bono España 5Y", "ES5Y", 102.50, 2.5, "2029-05-12")
+    print(f"Activo cargado: {b1}")
 
-    # 3. Estrategia y Alerta
-    estrategia_conservadora = Estrategia("Conservadora")
-    estrategia_conservadora.definir_peso("B10Y", 1.0)  # 100% de la cartera a este bono
+    # Creamos una estrategia y una alerta de seguridad
+    est = Estrategia("Ahorro Seguro")
+    est.definir_peso("ES5Y", 1.0)
 
-    alerta_precio = Alerta("B10Y", 95.00, "BAJADA")
-    print(f"Estrategia '{estrategia_conservadora._nombre}' lista. Alerta de seguridad activa.")
+    alerta = Alerta("ES5Y", 100.00, "BAJADA")
+    print(f"Estrategia '{est._nombre}' activa. Umbral alerta: {alerta._precio_umbral}{moneda.simbolo}")
 
-    # 4. Operación (Transacción y Registro)
-    compra = Transaccion("COMPRA", "B10Y", 50, 98.20)
-    log = RegistroHistorial("OPERACION", f"Compra de {compra._cantidad} unidades de {compra._ticker}")
-    print(f"Transacción realizada: Total {compra.obtener_monto_total()}{eur.simbolo}")
-    print(f"Log: {log}")
+    # El inversor realiza una compra
+    tx = Transaccion("COMPRA", "ES5Y", 20, 102.50)
+    print(f"Ejecutando TX... Total: {tx.obtener_monto_total()}{moneda.simbolo}")
 
-    # 5. El Inversor
-    inversor = Inversor("Oscar Marco", "USR-404")
-    print(f"Inversor {inversor._nombre} creado exitosamente.")
+    #  Guardamos lo ocurrido en el historial
+    historial = RegistroHistorial("ORDEN_EJECUTADA", "Compra de 20 bonos realizada con éxito")
+    print(f"LOG: {historial}")
 
-    # Verificación de lógica de alerta
-    precio_caida = 94.50
-    if alerta_precio.verificar(precio_caida):
-        print(f"¡AVISO! El precio cayó a {precio_caida}. Alerta de {alerta_precio._tipo_alerta} disparada.")
-
+    # Mostramos quién es el inversor final
+    user = Inversor("Oscar Marco", "USR-001")
+    print(f"Inversor responsable: {user._nombre}")
 
 if __name__ == "__main__":
-    demo_total()
+    print("--- DEBUG ENTIDADES ---")
+    demo_simplificada()
