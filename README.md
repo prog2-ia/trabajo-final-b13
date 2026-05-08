@@ -11,4 +11,5 @@ operadores para que sumar o comparar carteras sea tan fácil como un p1 + p2,
 y dejar listas las excepciones para cuando alguien intente meter importes 
 negativos o activos que no existen. Básicamente, pasar de tener piezas 
 sueltas a un sistema robusto que aguante cualquier burrada que intente 
-hacer el usuario en el simulador..
+hacer e
+https://github.com/prog2-ia/trabajo-final-b13l usuario en el simulador..
