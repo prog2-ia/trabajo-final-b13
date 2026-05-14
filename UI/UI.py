@@ -7,8 +7,7 @@ from Servicios.excepciones import (
 
 
 class InterfazConsola:
-    def _init_(self, gestor_t: GestionTransacciones):
-        # La UI solo se comunica con el servicio
+    def __init__(self, gestor_t: GestionTransacciones):
         self.gestor_t = gestor_t
 
     def ejecutar_menu(self):
@@ -39,10 +38,8 @@ class InterfazConsola:
         ticker = input("Ticker (ej. AAPL): ").upper()
 
         try:
-            # Comprobamos que meta un número y no un texto
             cantidad = float(input("Cantidad a comprar: "))
 
-            # Pasamos los datos al servicio para que haga los cálculos
             transaccion = self.gestor_t.ejecutar_compra(id_inv, ticker, cantidad)
             coste = transaccion.obtener_monto_total()
             print(f"Operación completada. Coste total: {coste:.2f}€")
@@ -50,7 +47,6 @@ class InterfazConsola:
         except ValueError:
             print("Error: Tienes que introducir un número válido.")
         except (ImporteInvalidoException, ActivoDesconocidoException, LimiteSuperadoException) as e:
-            # Aquí capturamos las excepciones de negocio que lanza el servicio
             print(f"Error en la operación: {e}")
         except Exception as e:
             print(f"Error del sistema: {e}")
