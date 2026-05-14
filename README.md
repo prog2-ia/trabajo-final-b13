@@ -11,3 +11,9 @@ El código está dividido en 4 capas principales para separar la lógica de la i
 - Persistencia: Se encarga de leer y guardar los datos. Usamos archivos de texto plano (.txt) para generar los reportes y ficheros binarios (.pkl) para guardar el estado completo del programa.
 - UI: Es el menú de la consola. Su única función es recoger los datos del usuario, validar que los formatos sean correctos y pasárselos a los servicios.
 
+## Cómo ejecutar y probar el programa
+
+Para arrancar el simulador, colócate en la carpeta del proyecto y ejecuta el archivo principal desde la terminal:
+
+`python main.py`
+
