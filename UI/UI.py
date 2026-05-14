@@ -2,11 +2,12 @@ from Servicios.gestion_transacciones import GestionTransacciones
 from Servicios.excepciones import (
     ImporteInvalidoException,
     ActivoDesconocidoException,
-    LimiteSuperadoException)
+    LimiteSuperadoException
+)
 
 
 class InterfazConsola:
-    def __init__(self, gestor_t: GestionTransacciones):
+    def _init_(self, gestor_t: GestionTransacciones):
         # La UI solo se comunica con el servicio
         self.gestor_t = gestor_t
 
